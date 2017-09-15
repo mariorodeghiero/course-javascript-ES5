@@ -18,7 +18,7 @@ function myFunction(param) {
 Imprima o segundo índice do array retornado pela função criada acima.
 */
 
-console.log(myFunction(arr));
+console.log(myFunction(arr)[1]);
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -26,18 +26,28 @@ segundo, um número. A função deve retornar um índice do array que foi passad
 no primeiro parâmetro. O índice a ser retornado, deve ser o número passado no
 segundo parâmetro.
 */
-// ?
+
+function twoParameters(par1, index) {
+
+    return par1[ index ];
+}
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-// ?
+let arrayPar1 = [ 'mario', 33, true, undefined, 23.4];
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-// ?
+
+console.log(twoParameters(arrayPar1, 0));
+console.log(twoParameters(arrayPar1, 1));
+console.log(twoParameters(arrayPar1, 2));
+console.log(twoParameters(arrayPar1, 3));
+console.log(twoParameters(arrayPar1, 4));
+
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -53,30 +63,52 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-// ?
+function book( bookName ) {
+
+    let books = {
+        'Eloquent JS': {
+            quantidadePaginas: 400,
+            autor: ' xxxx',
+            editora: 'yyyy '
+        },
+        'Segredos do Ninja Javascript': {
+            quantidadePaginas: 222 ,
+            autor: ' yyyyy',
+            editora: 'novatec '
+        },
+        'Python Eficaz': {
+            quantidadePaginas: 333 ,
+            autor: ' zzzzzz',
+            editora: ' altabooks'
+        }
+    };
+
+   return !bookName ? books : books[bookName];
+}
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-// ?
-
+console.log(book());
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-// ?
+console.log('O livro python eficaz tem ' + book('Eloquent JS').quantidadePaginas + ' páginas!');
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-// ?
+
+console.log('O autor do livro Python Eficaz é ' + book('Python Eficaz').autor + '.');
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
+
+console.log('O livro Python Eficaz foi publicado pela editora ' + book('Python Eficaz').editora + '.')
