@@ -8,5 +8,16 @@ function mario() {
 
 
 console.log(mario().cpf)
-
 console.log(mario().name)
+
+// Onother example
+
+let car = {
+    color: "yellow"
+}
+
+function getCarColor(mycar) {
+    return mycar.color;
+}
+
+console.log(getCarColor(car));
