@@ -1,4 +1,4 @@
-// IIFE - É uma função que executa automaticamente
+// IIFE - É uma função que executa automaticamente ou imediatamente invocada e tambem mantem um escopo local
 
 (
     function () {
