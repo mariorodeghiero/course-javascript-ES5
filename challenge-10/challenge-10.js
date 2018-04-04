@@ -10,10 +10,10 @@
     das variáveis. Analise o que está sendo impresso no console para saber como
     resolver o problema corretamente.
     */
-  var five = Number("5");
+  let five = Number("5");
   console.log(five + " é número?", typeof five === "number");
 
-  var concat = String(10) + 10;
+  let concat = String(10) + 10;
   console.log(
     '"' + concat + '" é uma string? E é igual a "1010"?',
     typeof concat === "string"
@@ -58,6 +58,9 @@
     - O desafio é fazer o retorno sem usar "if" ou "switch".
     */
   //
+  function isOperatorValid(operador) {
+    return operation[operador] !== undefined;
+  }
 
   /*
     Agora vamos criar a calculadora.
@@ -71,7 +74,9 @@
     operador passado para a função "calculator", e passando para esse método
     os dois parâmetros da função de retorno de "calculator".
     */
-  // ?
+  function calculator(operador) {
+    isOperatorValid(operador);
+  }
 
   /*
     Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
