@@ -1,4 +1,4 @@
-(function() {
+(function () {
   /*
     Crie uma IIFE que envolva todo esse arquivo (inclusive esse comentário),
     e faça a indentação correta.
@@ -30,19 +30,19 @@
     */
 
   let operation = {
-    "+": function(x, y) {
+    "+": function (x, y) {
       return x + y;
     },
-    "-": function(x, y) {
+    "-": function (x, y) {
       return x - y;
     },
-    "*": function(x, y) {
+    "*": function (x, y) {
       return x * y;
     },
-    "/": function(x, y) {
+    "/": function (x, y) {
       return x / y;
     },
-    "%": function(x, y) {
+    "%": function (x, y) {
       return x % y;
     }
   };
@@ -75,7 +75,15 @@
     os dois parâmetros da função de retorno de "calculator".
     */
   function calculator(operador) {
-    isOperatorValid(operador);
+    if (!isOperatorValid(operador)) {
+      return false
+    };
+    return function (x, y) {
+      if (typeof x !== 'number' && typeof y !== 'number') {
+        return false
+      }
+      return operation[operator](x, y);
+    }
   }
 
   /*
@@ -85,7 +93,9 @@
     'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
     Essa função mostrará a mensagem da operação que criaremos mais abaixo.
     */
-  //
+  function showOperationMessage(operator, number1, number2) {
+    return `A operação ${number1} ${operator} ${number2} =`;
+  }
 
   /*
     Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -93,7 +103,10 @@
     Essa função deverá retornar a frase:
     'Operação "[OPERATOR]" não permitida!'
     */
-  //
+
+  function showErrorMessage(operator) {
+    return `Operação ${operator} não permitida!`
+  }
 
   /*
     Nossa calculadora está pronta! Agora vamos testá-la:
@@ -101,7 +114,10 @@
     - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
     "operationSignal", sem valor por enquanto.
     */
-  //
+
+  let number1 = 0;
+  let number2 = 0;
+  let operationSignal;
 
   /*
     PASSO 2:
@@ -109,8 +125,8 @@
     variável chamada "sum", que receba a função "calculator", passando por
     parâmetro a variável que recebeu o sinal da operação.
     */
-  //
-
+  operationSignal = "+"
+  let sum = calculator(operationSignal);
   /*
     PASSO 3:
     "sum" agora é uma função, e, se o sinal correto não foi passado para a
@@ -123,7 +139,13 @@
     - O segundo, a função de soma, passando os dois operandos.
     - Se "sum" for "false", mostrar no console a mensagem de erro.
     */
-  // ?
+  if (sum) {
+    number1 = 10;
+    number2 = 12;
+    console.log('------------------------------------');
+    console.log(showOperationMessage(operationSignal, number1, number2), sum(number1, number2));
+    console.log('------------------------------------');
+  }
 
   /*
     Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
